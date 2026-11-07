@@ -1,0 +1,142 @@
+/* @ちゃんねる — estilo BBS clássico (era 2008) */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #efefef;
+  color: #000;
+  font-family: "MS PGothic", "ＭＳ Ｐゴシック", "IPAMonaPGothic", "Mona", "Osaka", "Hiragino Kaku Gothic Pro", sans-serif;
+  font-size: 16px;
+  line-height: 1.35;
+}
+a { color: #0000ff; }
+a:visited { color: #660099; }
+a:hover { color: #ff0000; }
+hr { border: 0; border-top: 1px solid #888; margin: 8px 0; }
+#app { padding: 8px 12px 40px; max-width: 1100px; margin: 0 auto; }
+
+/* ---------- topo / índice ---------- */
+.logo {
+  text-align: center; margin: 14px 0 4px;
+  font-size: 44px; font-weight: bold; letter-spacing: 2px;
+  color: #333;
+}
+.logo .at { color: #cc0000; }
+.sublogo { text-align: center; font-size: 13px; color: #555; margin-bottom: 14px; }
+.top-layout { display: flex; gap: 14px; align-items: flex-start; }
+.menu {
+  width: 190px; flex: none;
+  background: #fff; border: 1px solid #999; padding: 6px 8px; font-size: 14px;
+}
+.menu b.cat { display: block; margin-top: 8px; color: #800000; }
+.menu a { display: block; padding: 1px 0 1px 6px; }
+.top-main { flex: 1; min-width: 0; }
+.box {
+  background: #ccffcc; border: 1px solid #000; padding: 8px 10px; margin-bottom: 12px;
+}
+.box.white { background: #fff; }
+.box.yellow { background: #ffffcc; }
+.box h2 { margin: 0 0 6px; font-size: 18px; }
+.box ul { margin: 4px 0; padding-left: 22px; }
+.news-date { color: #555; font-size: 13px; }
+.counter { font-family: monospace; background: #000; color: #0f0; padding: 1px 6px; letter-spacing: 2px; }
+
+/* ---------- quadro (board) ---------- */
+.board-head {
+  background: #ccffcc; border: 1px solid #000; padding: 8px 12px; margin: 6px 0 10px;
+}
+.board-title { font-size: 26px; color: #ff0000; font-weight: bold; margin: 2px 0 6px; text-align: center; }
+.board-rules { font-size: 14px; }
+.board-rules li { margin: 2px 0; }
+.thread-index {
+  background: #efefef; border: 1px solid #000; padding: 6px 10px; margin-bottom: 12px; font-size: 14px;
+}
+.thread-index a { margin-right: 8px; white-space: nowrap; display: inline-block; }
+.thread-index .more { font-weight: bold; }
+.thread-box {
+  background: #efefef; border: 1px solid #000; padding: 8px 12px; margin-bottom: 12px;
+}
+.thread-box .t-title { font-size: 20px; color: #ff0000; font-weight: bold; }
+.thread-box .t-nav { float: right; font-size: 13px; }
+.thread-box .t-nav a { margin-left: 4px; }
+
+/* ---------- posts ---------- */
+.post { margin: 0 0 14px; }
+.post dt { margin: 0; font-size: 15px; }
+.post dd { margin: 4px 0 0 40px; word-wrap: break-word; overflow-wrap: anywhere; }
+.post .num { cursor: pointer; text-decoration: none; color: #000; }
+.post .num:hover { text-decoration: underline; color: #f00; }
+.post .name { color: #228822; font-weight: bold; }
+.post .name a { color: #0000ff; }
+.post .trip { color: #228822; font-weight: normal; }
+.post .id { cursor: pointer; }
+.post .id.many { color: #ff0000; }
+.post .id.mid { color: #0000aa; }
+.post.highlight dd, .post.highlight dt { background: #ffff99; }
+.post.mine .name::after { content: " (você)"; color: #888; font-weight: normal; font-size: 12px; }
+.anchor { color: #0000ff; text-decoration: underline; cursor: pointer; }
+.aa {
+  font-family: "MS PGothic", "IPAMonaPGothic", "Mona", "Monapo", "Textar", sans-serif;
+  font-size: 16px; line-height: 18px; white-space: pre; overflow-x: auto; display: block;
+}
+.over1000 { color: #ff0000; font-weight: bold; }
+.omitted { color: #666; font-size: 14px; margin: 4px 0 10px; }
+.deleted { color: #888; }
+
+/* ---------- thread page ---------- */
+.read-title { color: #ff0000; font-size: 24px; font-weight: bold; margin: 8px 0 10px; }
+.read-nav { font-size: 14px; margin: 6px 0; }
+.read-nav a { margin-right: 8px; }
+.size-warn { color: #ff0000; font-size: 14px; }
+
+/* ---------- formulários ---------- */
+form.bbs { margin: 12px 0; font-size: 14px; }
+form.bbs table td { padding: 2px 4px; vertical-align: top; }
+form.bbs input[type=text] { width: 180px; font-family: inherit; font-size: 14px; }
+form.bbs input.wide { width: 420px; max-width: 100%; }
+form.bbs textarea { width: 560px; max-width: 100%; height: 130px; font-family: inherit; font-size: 15px; }
+form.bbs button { font-family: inherit; font-size: 14px; padding: 2px 10px; }
+.form-msg { color: #ff0000; font-weight: bold; margin-top: 4px; }
+
+/* ---------- popup de âncora ---------- */
+#popup-layer { position: absolute; top: 0; left: 0; z-index: 50; }
+.popup {
+  position: absolute; background: #f0f0e0; border: 1px solid #000; padding: 6px 10px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,.3); width: max-content; max-width: min(640px, 94vw); font-size: 15px;
+}
+.popup .post { margin: 0 0 6px; }
+.popup .post dd { margin-left: 20px; }
+
+/* ---------- rodapé / misc ---------- */
+.footer { text-align: center; font-size: 12px; color: #555; margin-top: 30px; }
+.small { font-size: 13px; }
+.red { color: #ff0000; }
+.search-hit { background: #fff; border: 1px solid #aaa; padding: 6px; margin: 6px 0; }
+mark { background: #ffff00; }
+
+/* ---------- "その目、だれの目？" ---------- */
+#eyes {
+  position: fixed; inset: 0; display: none; z-index: 999;
+  align-items: center; justify-content: center;
+  background: rgba(0,0,0,.92); color: #c00000;
+  font-size: min(9vw, 72px); font-weight: bold; letter-spacing: .1em;
+  text-shadow: 0 0 12px #f00;
+  font-family: "MS PMincho", "Hiragino Mincho Pro", serif;
+  pointer-events: none;
+}
+#eyes.on { display: flex; animation: flicker .9s steps(2) 2; }
+@keyframes flicker { 0%{opacity:1} 50%{opacity:.15} 100%{opacity:1} }
+.glitch { animation: glitch 0.25s steps(2) 3; }
+@keyframes glitch {
+  0% { transform: translate(0,0); filter: none; }
+  50% { transform: translate(-3px,1px); filter: invert(1) hue-rotate(180deg); }
+  100% { transform: translate(2px,-1px); }
+}
+.creepy { color: #990000; }
+
+@media (max-width: 720px) {
+  .top-layout { flex-direction: column; }
+  .menu { width: 100%; }
+  .post dd { margin-left: 12px; }
+  .logo { font-size: 32px; }
+  .thread-box .t-nav { float: none; display: block; }
+}
