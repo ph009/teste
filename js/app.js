@@ -7,6 +7,9 @@
   var eyes = document.getElementById("eyes");
   var WEEK = ["日", "月", "火", "水", "木", "金", "土"];
   var LS = "atch_";
+  var cur = location.hash || "#/";
+  function go(h) { if (h === cur) { route(); return; } cur = h; try { history.pushState(null, "", h); } catch (e) {} route(); }
+  window.addEventListener("popstate", function () { cur = location.hash || "#/"; route(); });
 
   /* ---------------- armazenamento seguro ---------------- */
   function load(k, def) {
@@ -392,7 +395,7 @@
     if (/その目、?だれの目/.test(body)) setTimeout(flashEyes, 600);
     app.innerHTML = '<div class="box white" style="margin-top:40px;text-align:center"><b>書きこみが終わりました。</b><br><br>画面を切り替えるまでしばらくお待ち下さい。<br><span class="small">(Post enviado. Aguarde...)</span></div>';
     var target = "#/read/" + b.id + "/" + t.key + "/l50";
-    setTimeout(function () { if (location.hash === target) route(); else location.hash = target; scrollBottom(); }, 900);
+    setTimeout(function () { go(target); scrollBottom(); }, 900);
     scheduleReply(t);
   }
   function fmtStart(d) { return d.getFullYear() + "/" + pad(d.getMonth() + 1) + "/" + pad(d.getDate()) + " " + pad(d.getHours()) + ":" + pad(d.getMinutes()); }
@@ -412,7 +415,7 @@
       var b = board(t.board);
       addPost(t, { name: b.noname, mail: Math.random() < 0.4 ? "sage" : "", body: body, time: now.getTime(),
         id: code("anon" + Math.random(), 8), mine: false });
-      var here = location.hash.indexOf("#/read/" + t.board + "/" + t.key) === 0;
+      var here = cur.indexOf("#/read/" + t.board + "/" + t.key) === 0;
       if (here) { route(); notify("新着レス 1件 (nova resposta)"); }
       if (pool === D.autoReplies.creepy && Math.random() < 0.3) setTimeout(flashEyes, 1500);
     }, 4000 + Math.random() * 10000);
@@ -439,7 +442,7 @@
   /* ---------------- popups de âncora ---------------- */
   var hideTimer = null;
   function currentCtx() {
-    var m = location.hash.match(/^#\/read\/([^/]+)\/([^/]+)/);
+    var m = cur.match(/^#\/read\/([^/]+)\/([^/]+)/);
     if (m) { var t = findThread(m[1], m[2]); return t ? build(t) : null; }
     return null;
   }
@@ -497,6 +500,8 @@
 
   /* ---------------- cliques ---------------- */
   document.addEventListener("click", function (e) {
+    var ml = e.target.closest('a[href^="mailto:"]');
+    if (ml) { e.preventDefault(); return; }
     var jump = e.target.closest("[data-jump]");
     if (jump && jump.getAttribute("data-jump")) {
       e.preventDefault();
@@ -505,13 +510,15 @@
       return;
     }
     var anc = e.target.closest(".anchor");
-    if (anc && !anc.closest(".popup") && document.querySelector('#app .post[data-n="' + anc.getAttribute("data-a") + '"]') && location.hash.indexOf("#/read/") === 0) {
+    if (anc && !anc.closest(".popup") && document.querySelector('#app .post[data-n="' + anc.getAttribute("data-a") + '"]') && cur.indexOf("#/read/") === 0) {
       e.preventDefault();
       var el = document.querySelector('#app .post[data-n="' + anc.getAttribute("data-a") + '"]');
       el.scrollIntoView({ block: "center" });
       el.classList.add("highlight"); setTimeout(function () { el.classList.remove("highlight"); }, 1500);
       return;
     }
+    var nav = e.target.closest('a[href^="#/"]');
+    if (nav) { e.preventDefault(); go(nav.getAttribute("href")); return; }
     var num = e.target.closest(".num");
     if (num) {
       var scope = num.closest(".thread-box") || document;
@@ -530,16 +537,15 @@
       return;
     }
     if (e.target.id === "wipe") {
-      if (confirm("Apagar todos os seus posts, threads e preferências?")) {
-        Object.keys(localStorage).forEach(function (k) { if (k.indexOf(LS) === 0) localStorage.removeItem(k); });
-        location.hash = "#/"; location.reload();
-      }
+      if (!e.target.dataset.armed) { e.target.dataset.armed = "1"; e.target.textContent = "Clique de novo para confirmar"; return; }
+      try { Object.keys(localStorage).forEach(function (k) { if (k.indexOf(LS) === 0) localStorage.removeItem(k); }); } catch (err) {}
+      e.target.textContent = "Dados apagados. Recarregue a página.";
     }
   });
 
   document.addEventListener("submit", function (e) {
     var f = e.target;
-    if (f.id === "searchform") { e.preventDefault(); location.hash = "#/search/" + encodeURIComponent(f.q.value); return; }
+    if (f.id === "searchform") { e.preventDefault(); go("#/search/" + encodeURIComponent(f.q.value)); return; }
     if (f.classList.contains("bbs")) { e.preventDefault(); submit(f); }
   });
 
@@ -547,7 +553,7 @@
   function route() {
     popupLayer.innerHTML = "";
     document.title = D.site;
-    var h = location.hash.replace(/^#\/?/, "");
+    var h = cur.replace(/^#\/?/, "");
     var parts = h.split("/");
     switch (parts[0]) {
       case "": pageTop(); break;
@@ -562,7 +568,7 @@
     }
     if (!/^t\d+$/.test(parts[0])) window.scrollTo(0, 0);
   }
-  window.addEventListener("hashchange", route);
+  
   route();
   if (Math.random() < 0.03) setTimeout(flashEyes, 20000 + Math.random() * 40000);
 })();
