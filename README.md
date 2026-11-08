@@ -1,19 +1,26 @@
-# @ちゃんねる (@channel) — BBS de fã inspirado em CHAOS;HEAD
+# @channel — BBS de CHAOS;HEAD (fan-made)
 
-Recriação de fã do imageboard/BBS fictício que Takumi lê em CHAOS;HEAD, no estilo dos BBS japoneses de 2008.
-Site estático: abra `index.html` no navegador (ou publique no GitHub Pages). Sem dependências.
+Recriação de fã do @channel (@ちゃんねる), o BBS que Takumi lê em CHAOS;HEAD.
+O visual segue as telas do BBS em CHAOS;HEAD NoAH:
 
-## O que tem
-- Página inicial com avisos, ranking de velocidade (勢い), lista de boards e contador de acessos
-- 6 boards (事件・事故, オカルト, ニュー速VIP, アニメ, 地震, ネットゲーム) com regras locais
-- Índice de threads, prévia (1º post + últimos 5), lista completa (スレッド一覧)
-- Leitura com `全部 / 最新50 / 1-100 / post único`
-- Posts com número, nome, e-mail (`sage`), data `2008/09/28(日) 00:12:25`, ID diário com contador (1/3)
-- Âncoras `>>n` / `>>n-m` com popup ao passar o mouse (aninhado), popup por ID, destaque de ID ao clicar
-- Clicar no número do post insere `>>n` no formulário
-- Postar e criar threads (salvo no `localStorage`), trip `Nome#senha` → `◆XXXXXXXXXX`, `fusianasan`, `sage`/`age`
-- Arte ASCII (AA), links `ttp://`, limite de 1000 posts, tamanho em KB
-- Anônimos que respondem aos seus posts, busca de threads, guia de jargões
-- Easter egg: 「その目、だれの目？」
+- fundo de tijolos oliva com coluna central;
+- banner do board ("… Board Guide / Users under 20 years old will be banned.");
+- caixa amarela de regras em texto vermelho ("@channel Bulletin Board…", "Users under the age of 20 are not allowed to proceed.");
+- caixas brancas de thread com `■▲▼` roxos, `[1:538]` e título em vermelho;
+- posts no formato `525  Name: Anonymous Prophet [sage]: 200X/10/7(Tue) 10:24:27 ID:O983t+Tt` (número e `ID:` em azul, nome em verde, ano mascarado como `200X`).
 
-Todo o texto dos posts é original (ficção de fã). Sem afiliação com MAGES./Nitroplus.
+A linha do tempo segue os casos da New Gen: Group Dive 9/7, Manchild 9/19, Cruc-affixion 9/29, Vampbuyer 10/10.
+O site começa em 12/10, depois de Vampbuyer.
+
+Site estático, sem dependências: abra `index.html` ou publique pelo GitHub Pages.
+
+## Funções
+- Portal com boards, threads mais rápidas e contador
+- 6 boards (Figure/Eroge, Incidents, Occult, News VIP, Online Games, Earthquake), cada um com banner, regras, índice, prévias e formulário de nova thread
+- Leitura completa / Last 50 / 1-100, popups de `>>n` (aninhados), popup e destaque por ID, clique no número para citar
+- Postagem salva no navegador: `sage`/`age`, tripcode `Nome#senha`, `fusianasan`, limite de 1000 posts, tamanho em KB
+- Anônimos que respondem aos seus posts, busca de threads, guias dos boards
+- Blog de resumos "All Things New Gen"
+- Easter egg: *Whose eyes are those eyes?*
+
+Todo o texto dos posts é original. Sem afiliação com MAGES./Nitroplus/Spike Chunsoft.
