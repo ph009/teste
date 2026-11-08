@@ -120,10 +120,19 @@
       '<div class="b-warn">Users under <u>20 years old</u> will be banned.</div></div>';
   }
   function rulesBox(b) {
-    var html = '<div class="rules"><p>@channel Bulletin Board (Be sure to familiarize yourself with the ' + esc(b.name.replace(/ Board$/, "")) + " Board Guide!)</p>" +
+    var html = '<div class="rules"><p>Welcome to the @channel ' + esc(b.name) + ". Read the " + esc(b.name.replace(/ Board$/, "")) + " Board Guide before you post!</p>" +
       "<p>Users under the age of 20 are not allowed to proceed.</p>";
     b.rules.forEach(function (r, i) { html += "<p>" + (i + 1) + ". " + esc(r) + "</p>"; });
     return html + '<p class="center"><a href="#/guide/' + b.id + '">' + esc(b.name.replace(/ Board$/, "")) + " Board Guide</a></p></div>";
+  }
+  function homeBar() {
+    return '<nav class="homebar"><a class="homebtn" href="#/">◀ Back to @channel Home</a></nav>';
+  }
+  function caseRows(withText) {
+    return D.incidents.map(function (c) {
+      return '<tr><td class="cno">No.' + c.no + '</td><td class="cdate">' + c.date + '</td><td class="cname">' + esc(c.name) +
+        '</td><td class="ckao">' + esc(c.kao) + "</td>" + (withText ? '<td class="ctext">' + esc(c.text) + " <span class=\"cv\">(" + c.victims + (c.victims > 1 ? " victims" : " victim") + ")</span></td>" : "") + "</tr>";
+    }).join("");
   }
   function footer() {
     return '<div class="footer">@channel BBS.CGI — fan-made tribute to the BBS seen in CHAOS;HEAD. ' +
@@ -156,7 +165,10 @@
     Object.keys(cats).forEach(function (c) {
       html += "<div><h3>" + esc(c) + "</h3>" + cats[c].map(function (b) { return '<a href="#/board/' + b.id + '">' + esc(b.name) + "</a>"; }).join("") + "</div>";
     });
-    html += '</div></div><div class="tbox"><div class="ttitle"><span class="t">Fastest Threads</span></div><div class="tindex">';
+    html += '</div></div><div class="tbox"><div class="ttitle"><span class="t">New Gen Case List</span></div>' +
+      '<div class="cases-wrap"><table class="cases">' + caseRows(false) + '</table></div>' +
+      '<p class="small"><a href="#/newgen">Full case files at All Things New Gen</a> · <a href="#/board/incident">Incidents Board</a></p></div>';
+    html += '<div class="tbox"><div class="ttitle"><span class="t">Fastest Threads</span></div><div class="tindex">';
     rank.forEach(function (x, i) {
       html += (i + 1) + ': <a href="#/read/' + x.r.t.board + "/" + x.r.t.key + '/l50">' + esc(x.r.t.title) + " (" + x.r.posts.length + ")</a> " +
         '<span class="small">[' + esc(x.r.b.name) + "] " + x.s.toFixed(1) + "/day</span><br>";
@@ -278,11 +290,14 @@
   function pageNewGen() {
     var N = D.newgen, a = N.article;
     var html = '<div class="col"><div class="ng"><div class="ng-head"><div class="kick">All Things New Gen</div><h1>Want the GENeral NEWs?</h1>' +
-      '<div class="bears">(ll´(ｪ)`ll) (ll´(ｪ)`ll) (ll´(ｪ)`ll) (ll´(ｪ)`ll) (ll´(ｪ)`ll) (ll´(ｪ)`ll)</div></div>' +
+      '<div class="bears">(;´(ｪ)`) (;´(ｪ)`) (;´(ｪ)`) (;´(ｪ)`) (;´(ｪ)`) (;´(ｪ)`) (;´(ｪ)`)</div></div>' +
       '<div class="ng-body"><div><div class="ng-bar">◆New Gen Headlines</div><ul class="ng-list">' +
-      N.headlines.map(function (h) { return '<li><span class="kao">(ll´(ｪ)`ll)</span><a href="#/search/' + encodeURIComponent(h.split(" ")[0]) + '">' + esc(h) + "</a></li>"; }).join("") +
+      N.headlines.map(function (h) { return '<li><span class="kao">(;´(ｪ)`)</span><a href="#/search/' + encodeURIComponent(h.split(" ")[0]) + '">' + esc(h) + "</a></li>"; }).join("") +
       '</ul><div class="ng-bar">◆' + esc(a.title) + "</div>" +
-      '<div class="ng-article"><div class="date">' + esc(a.date) + "</div><h3>1. Name: " + esc(a.name) + "</h3><p>" + esc(a.body).replace(/\n/g, "<br>") + "</p></div></div>" +
+      '<div class="ng-article"><div class="date">' + esc(a.date) + "</div><h3>1. Name: " + esc(a.name) + "</h3><p>" + esc(a.body).replace(/\n/g, "<br>") + "</p>" +
+      '<div class="cases-wrap"><table class="cases ng-cases">' + caseRows(true) + "</table></div>" +
+      "<h3>2. Name: " + esc(a.name) + "</h3><p>And the quakes. Shibuya only, every time:</p>" +
+      D.melts.map(function (m) { return "<p>◆ " + esc(m.date) + " — M" + esc(m.mag) + ": " + esc(m.text) + "</p>"; }).join("") + "</div></div>" +
       '<div class="ng-side"><div class="counter-row">' + String(load("ngc", 1507834) + 1).split("").map(function (c) { return "<span>" + c + "</span>"; }).join("") + "</div>" +
       "<h4>BOOKMARKS</h4><ul><li>NEWS-SITE</li>" + N.bookmarks.map(function (x) { return "<li>◆" + esc(x) + "</li>"; }).join("") + "</ul>" +
       '<div class="box"><a href="#/board/incident">● New Gen General</a><a href="#/board/occult">● Occult</a><a href="#/">● @channel</a></div></div></div></div></div>' + footer();
@@ -434,6 +449,11 @@
     if (f.classList.contains("bbs")) { e.preventDefault(); submit(f); }
   });
 
+  var floatHome = document.createElement("a");
+  floatHome.className = "floathome"; floatHome.href = "#/"; floatHome.textContent = "◀ Home"; floatHome.hidden = true;
+  floatHome.setAttribute("aria-label", "Back to @channel Home");
+  document.body.appendChild(floatHome);
+
   /* ---------------- router ---------------- */
   function route() {
     popupLayer.innerHTML = "";
@@ -449,6 +469,8 @@
       case "newgen": pageNewGen(); break;
       default: notFound();
     }
+    if (parts[0] !== "") app.insertAdjacentHTML("afterbegin", homeBar());
+    floatHome.hidden = parts[0] === "";
     window.scrollTo(0, 0);
   }
   route();

@@ -8,13 +8,13 @@
  */
 window.BBS = {
   site: "@channel",
-  worldStart: [2008, 9, 12], // Oct 12 (month is 0-based) — two days after Vampbuyer
+  worldStart: [2008, 10, 5], // Nov 5 (month is 0-based) — the day after DQN Puzzle
 
   boards: [
     { id: "figure", cat: "Hobby", name: "Figure/Eroge Board", noname: "Anonymous Prophet", theme: "",
       mascot: "(ಠ ಠ)つ", mascotSub: "eeeeeee",
       slogan: "A shelf full of plastic is an otaku's castle.",
-      rules: ["Duplicate threads are prohibited.", "Thread names should be easy to search.", "No posting leaked scans before release day."] },
+      rules: ["One thread per topic. Search before you post.", "Put the series name in the thread title.", "No posting leaked scans before release day."] },
     { id: "incident", cat: "News", name: "Incidents Board", noname: "It is I, Anonymous!", theme: "t-night",
       mascot: "(ll´Д`ll)", mascotSub: "!!!!",
       slogan: "Every case, every rumor, every night.",
@@ -37,7 +37,31 @@ window.BBS = {
       rules: ["Post the time and area of every tremor.", "No prophecies. No doomsday dates."] },
   ],
 
+  /* The seven New Gen cases. Dates as reported; kaomoji are this site's own. */
+  incidents: [
+    { no: 1, name: "Group Dive", date: "9/7", kao: "(ﾟдﾟ)(ﾟдﾟ)(ﾟдﾟ)ﾉ ↓↓↓", victims: 5,
+      text: "Around 23:30, five high school students fell together from the rooftop heliport of Cornelius Tower. The roof door was locked and none of them had a key." },
+    { no: 2, name: "Manchild", date: "9/19", kao: "(||ﾟДﾟ)⊃●", victims: 2,
+      text: "A 21-year-old university student was found dead under a bridge at dawn, his stomach sewn shut around a fetus that wasn't related to him." },
+    { no: 3, name: "Cruc-affixion", date: "9/29", kao: "┼┼(ﾟ∀ﾟ;)┼┼ ｶﾝｶﾝｶﾝ", victims: 1,
+      text: "A 56-year-old university professor was pinned to the concrete wall of an abandoned building with cross-shaped stakes. Neighbors heard hammering from about 20:00." },
+    { no: 4, name: "Vampbuyer", date: "10/10", kao: "( ﾟ∀ﾟ)σ[TYPE B] ﾁｭｰﾁｭｰ", victims: 1,
+      text: "A body drained of blood was found in a station restroom. A photo of the scene went up for auction on Taboo!, with \"Whose eyes are those eyes?\" written on the wall." },
+    { no: 5, name: "Numbskull", date: "10/23", kao: "(　ﾟ ⊿ ﾟ)ｶﾗｯﾎﾟ", victims: 1,
+      text: "A psychiatrist from AH Tokyo General Hospital was found in the street at dawn. His brain had been removed, and he had been kept alive for a while without it." },
+    { no: 6, name: "Finger Food", date: "10/28", kao: "(ﾟ～ﾟ)ﾓｸﾞﾓｸﾞ", victims: 1,
+      text: "The day after the M5.0 quake, a 27-year-old woman was found in the Shibuya River with her ankles bound. She had choked, apparently on her own right hand." },
+    { no: 7, name: "DQN Puzzle", date: "11/4", kao: "D(ﾟ∀)Q(∀ﾟ)N(ﾟ∀ﾟ)??", victims: 3,
+      text: "Three young delinquents were found by the railway tracks at about 4:50, each cut in half and stitched back together with another one's body. D, Q and N were carved into their foreheads." },
+  ],
+  melts: [
+    { date: "July", mag: "3.0", text: "Centered on Shibuya. Barely felt elsewhere, yet 8 people died." },
+    { date: "10/27", mag: "5.0", text: "118 dead, 367 injured. Mass headaches and fainting. People posted photos of a white sky that never made the news." },
+  ],
+
   news: [
+    ["200X/11/04", "Threads containing crime scene photos are being deleted. Posting them again will get you banned."],
+    ["200X/10/27", "Some servers went down after the earthquake. Lost posts cannot be restored. Sorry."],
     ["200X/10/11", "Heavy load on the server due to traffic in the Shibuya threads. Some boards may be slow."],
     ["200X/10/10", "Reminder: posting victims' photos or real names results in a permanent ban."],
     ["200X/09/20", "New board opened: Earthquake Board."],
@@ -45,6 +69,148 @@ window.BBS = {
   ],
 
   threads: [
+    /* =============================================================== */
+    { board: "incident", key: "1225773000", start: "2008/11/04 06:10",
+      title: "[Shibuya] New Gen General Part 31 [DQN Puzzle]",
+      posts: [
+        ["op", "General thread for the New Gen incidents.\n\nCase list so far:\nNo.1  9/7    Group Dive\nNo.2  9/19   Manchild\nNo.3  9/29   Cruc-affixion\nNo.4  10/10  Vampbuyer\nNo.5  10/23  Numbskull\nNo.6  10/28  Finger Food\nNo.7  11/4   DQN Puzzle  ← NEW\n\nRules: NO crime scene pics. The mods are nuking them and banning on sight.\nNext thread by >>950"],
+        ["a", ">>1 thanks for the new thread\nthat was fast", { gap: 1, mail: "sage" }],
+        ["b", "So is it confirmed? The pics in the last thread went up BEFORE any news report. The cops only announced it like two hours later.", { gap: 2 }],
+        ["c", ">>3\nyeah. by the time the TV had it, this board had already named it", { gap: 2 }],
+        ["d", "For newbies: DQN = delinquents, thugs, people with zero common sense.\nAll three of them were young delinquents. That's where the name comes from.", { gap: 3 }],
+        ["e", ">>5\nand the \"puzzle\" part is because of how they were put back together\nnot gonna describe it. read the news", { gap: 2 }],
+        ["f", "The letters on their foreheads. D, Q, N.\nThe killer is literally talking our language. This is someone who reads @channel.", { gap: 4 }],
+        ["g", ">>7\nlol everyone in Japan knows what DQN means", { gap: 1, mail: "sage" }],
+        ["f", ">>8\nmy mom doesn't", { gap: 1 }],
+        ["h", "", { gap: 5, aa: true, body:
+"New Gen News Bear (;´(ｪ)`) updated for Part 31\n\nNo.1  Group Dive       (ﾟдﾟ)(ﾟдﾟ)(ﾟдﾟ)ﾉ ↓↓↓\nNo.2  Manchild         (||ﾟДﾟ)⊃●\nNo.3  Cruc-affixion    ┼┼(ﾟ∀ﾟ;)┼┼ ｶﾝｶﾝｶﾝ\nNo.4  Vampbuyer        ( ﾟ∀ﾟ)σ[TYPE B] ﾁｭｰﾁｭｰ\nNo.5  Numbskull        (　ﾟ ⊿ ﾟ)ｶﾗｯﾎﾟ\nNo.6  Finger Food      (ﾟ～ﾟ)ﾓｸﾞﾓｸﾞ\nNo.7  DQN Puzzle       D(ﾟ∀)Q(∀ﾟ)N(ﾟ∀ﾟ)??\nNo.8  ...please no (;´(ｪ)`)ﾌﾞﾙﾌﾞﾙ" }],
+        ["i", ">>10\nbear-san keeping the list updated even now. respect", { gap: 1 }],
+        ["j", ">>10\nthe Numbskull one got me lmao. sorry, I know", { gap: 2, mail: "sage" }],
+        ["k", "Seven cases in two months. And the police STILL won't call it one serial case.", { gap: 6 }],
+        ["l", ">>13\nbecause the methods are all different. jumping, surgery, stakes, blood, brain, hand, this.\nno single killer works like that", { gap: 3 }],
+        ["k", ">>14\nunless the point is to make it LOOK like different people", { gap: 2 }],
+        ["m", "What gets me is the timing. Finger Food was the day right after the big quake. Like whoever did it wasn't even slowed down by 118 people dying.", { gap: 9 }],
+        ["n", ">>16\nthe quake was 10/27. the city was a mess. perfect cover if you think about it", { gap: 3 }],
+        ["o", "Rumor from my friend's part-time job: those three DQNs had beaten someone up in Shibuya a while ago. Some nerd. Paid to do it.", { gap: 15 }],
+        ["p", ">>18\npaid by who", { gap: 1 }],
+        ["o", ">>19\nno idea. \"some guy in a mask\" is all I heard. could be bullshit", { gap: 3 }],
+        ["q", ">>18\nso the nerd got revenge? lol imagine a hikikomori doing THAT", { gap: 2 }],
+        ["r", ">>21\na hikikomori can't even buy his own groceries, don't be stupid", { gap: 1, mail: "sage" }],
+        ["s", "Back to the Group Dive video. With headphones you can hear a squeaking sound in the background. Like a wheel. Am I crazy?", { gap: 22 }],
+        ["t", ">>23\nI heard it too. people are saying wheelchair. which brings us back to that Shogun rumor", { gap: 3 }],
+        ["u", ">>24\nShogun again. the \"boss of Shibuya\" in a wheelchair. you guys will believe anything", { gap: 2 }],
+        ["v", "Whose eyes are those eyes?", { gap: 4 }],
+        ["e", ">>26\nnot funny anymore, not after seven", { gap: 1, mail: "sage" }],
+        ["w", "Anyone else feel like the city's about to snap? Everyone on the train this morning looked like they hadn't slept in a week.", { gap: 30 }],
+        ["x", ">>28\nI haven't. there was another small tremor at 3am. my head's been killing me since the big quake", { gap: 4 }],
+        ["y", ">>29\nsame. the headaches never fully went away. half my class has them", { gap: 2 }],
+        ["op", "Reminder: no pics, no names. Discuss, don't spread.", { gap: 20 }],
+      ]
+    },
+
+    /* =============================================================== */
+    { board: "incident", key: "1225181400", start: "2008/10/28 21:10",
+      title: "[Shibuya River] Woman found dead, ate her own hand?! [Finger Food]",
+      posts: [
+        ["op", "Breaking. A woman was found in the Shibuya River tonight around 20:00.\nAnkles tied with cord. TV says the muscle of her right hand was gone and there was bone in her stomach.\nThis is the day AFTER the quake. What the hell."],
+        ["a", "no no no no", { gap: 1 }],
+        ["b", "is this New Gen No.6?", { gap: 1 }],
+        ["c", ">>3\nnobody's certified it yet but come on", { gap: 2 }],
+        ["d", "27 years old, from Edogawa. Not even a Shibuya resident.", { gap: 5 }],
+        ["e", "Police saying \"both suicide and homicide are being considered\".\nHow is eating your own hand a suicide method", { gap: 3 }],
+        ["f", ">>6\nthe same way five kids \"jumped\" off a locked roof", { gap: 2 }],
+        ["g", "Name proposal: Finger Food", { gap: 4 }],
+        ["h", ">>8\nthat's horrible\n\n...yeah, it's gonna stick", { gap: 1 }],
+        ["i", ">>8\nyou guys are going to hell, all of you", { gap: 2, mail: "sage" }],
+        ["j", "City is still a wreck from yesterday. Ambulances everywhere, hospitals full of people with headaches. And someone had the energy to do this.", { gap: 11 }],
+        ["k", "Certified. Finger Food is New Gen No.6. Updating the list in the General.", { gap: 40 }],
+      ]
+    },
+
+    /* =============================================================== */
+    { board: "quake", key: "1225074600", start: "2008/10/27 11:30",
+      title: "[M5.0] HUGE quake in Shibuya just now [Everyone OK?]",
+      posts: [
+        ["op", "THAT WAS BIG\nShibuya. Everyone alive?"],
+        ["a", "alive. everything fell off my shelves", { gap: 0 }],
+        ["b", "alive but my head is splitting. like someone's drilling into it", { gap: 1 }],
+        ["c", ">>3\nsame!! headache out of nowhere the moment it hit", { gap: 1 }],
+        ["d", "Did anyone else see the sky go white? Like a flash. I swear it was white for a few seconds", { gap: 2 }],
+        ["e", ">>5\nI saw it too. from Dogenzaka it looked like a white mushroom shape", { gap: 2 }],
+        ["f", ">>6\nstop it, that's how nuke rumors start", { gap: 1, mail: "sage" }],
+        ["g", "People collapsed in front of the station. Just collapsed. Not from falling stuff. They just went down.", { gap: 6 }],
+        ["h", "My PC died. HDD is clicking. Lost everything. Anyone else??", { gap: 9 }],
+        ["i", ">>9\nexternal drive corrupted here. a magnitude 5 shouldn't do that", { gap: 3 }],
+        ["j", "Agency says M5.0. Tokyo had an M5 a few years back and nobody died. Why does this one feel so different", { gap: 15 }],
+        ["k", "Death toll on TV now says over 100. For an M5. How", { gap: 120 }],
+        ["l", ">>12\n118 dead and 367 injured is the latest number. I don't understand anything anymore", { gap: 60 }],
+        ["m", "Anybody have pics of the white sky? Mine got corrupted along with the rest of my HDD", { gap: 20 }],
+        ["n", ">>14\nposted some earlier on a photo uploader. link is dead now. the uploader says \"no such file\"", { gap: 8 }],
+        ["d", ">>15\nnone of the news shows mentioned the white sky. not one", { gap: 3 }],
+        ["o", "Same pattern as July. Small quake, way too many dead. Shibuya only.", { gap: 30 }],
+        ["p", ">>17\nand the next day someone gets killed again. I'm moving out of Shibuya", { gap: 600 }],
+      ]
+    },
+
+    /* =============================================================== */
+    { board: "incident", key: "1224741000", start: "2008/10/23 07:30",
+      title: "Psychiatrist found ALIVE with no brain?? [Numbskull]",
+      posts: [
+        ["op", "Found in the street at dawn in Shibuya. A doctor. Back of his skull was cut away and the brain was gone.\nReports say he was still \"alive\" for a while, like brain dead.\nNew Gen No.5??"],
+        ["a", "what the fuck", { gap: 1 }],
+        ["b", ">>1\nhow is that even possible", { gap: 1 }],
+        ["c", "He was a psychiatrist at AH Tokyo General. A shrink with no brain. The media is going to have a field day.", { gap: 4 }],
+        ["d", ">>4\nalready on every wide show. they keep saying \"ironic\" with a straight face", { gap: 3 }],
+        ["e", "Name: Numbskull. Calling it.", { gap: 2 }],
+        ["f", ">>6\nyou people are sick\n...but yeah", { gap: 1 }],
+        ["g", "Cause of death is apparently malnutrition. So whoever did it KEPT him somewhere first. That takes medical knowledge and a place to hide someone.", { gap: 12 }],
+        ["h", ">>8\nmedical knowledge... like Manchild. surgery both times", { gap: 3 }],
+        ["i", "His patients must be freaking out. Imagine being a patient there right now", { gap: 9 }],
+        ["j", ">>10\nI have a cousin who sees a doctor there. she's not going back", { gap: 4 }],
+        ["k", "Certified as New Gen No.5. Five cases. Six weeks.", { gap: 50 }],
+      ]
+    },
+
+    /* =============================================================== */
+    { board: "occult", key: "1224478800", start: "2008/10/20 14:00",
+      title: "[Precognition] Had a prophetic dream? Post it here #7 [Trolls GTFO]",
+      posts: [
+        ["op", "Thread for precognitive dreams and premonitions.\nWrite the date you had it. If it comes true, we'll know.\nPhantasm discussion goes to the Phantasm thread."],
+        ["a", "10/18: dreamed of a man lying in the street with his head open like a lid. Woke up sweating.", { gap: 10 }],
+        ["b", ">>2\ncreepy but too vague. post more details", { gap: 3 }],
+        ["c", "Every night this week I dream of the sky turning white. Not a flash, just white. And then everyone falling over.", { gap: 15 }],
+        ["d", ">>4\nis that a quake dream? there've been so many tremors", { gap: 2 }],
+        ["e", "Remember when FES predicted the stakes before Cruc-affixion? I bet the next song tells us the next case.", { gap: 20 }],
+        ["f", ">>6\nPhantasm thread is over there →", { gap: 1, mail: "sage" }],
+        ["g", "Not a dream, but I keep seeing a girl in a uniform at the corner of my eye. When I turn, nothing. Is that a premonition or am I losing it", { gap: 30 }],
+        ["h", ">>8\nyou're losing it. join the club", { gap: 2 }],
+        ["a", "Bumping my >>2. I'm scared now. Hope I'm wrong.", { gap: 1440, mail: "age" }],
+        ["i", ">>2 >>10\nit's 10/23. did you see the news. DID YOU SEE THE NEWS", { gap: 1500 }],
+        ["j", ">>11\n((((；ﾟДﾟ))))", { gap: 1 }],
+        ["k", ">>2\nyou're either a prophet or the killer. which one", { gap: 3 }],
+        ["a", ">>13\nneither. I'm just someone who can't sleep anymore", { gap: 10 }],
+        ["c", ">>4\nhey. it happened. 10/27. the white sky. I SAID IT", { gap: 5000 }],
+        ["l", ">>15\nok this thread is officially cursed. I'm out", { gap: 4 }],
+      ]
+    },
+
+    /* =============================================================== */
+    { board: "figure", key: "1225438200", start: "2008/11/01 16:30",
+      title: "Anti-Phantasm thread #12 [It's marketing, not prophecy]",
+      posts: [
+        ["op", "For people who are sick of FES worship.\nPhantasm \"predicting\" New Gen is the result of vague lyrics + fans who match them to the news after the fact.\nDiscuss calmly."],
+        ["a", "finally. thank you", { gap: 2 }],
+        ["b", "Their fans at the last live were chanting in unison. Not singing, chanting. Same face on everyone. It looked like a cult.", { gap: 6 }],
+        ["c", ">>3\nthe goth girl in front of me was crying and smiling at the same time. never going again", { gap: 3 }],
+        ["d", "Lyrics about crosses, blood, and the moon. Seven cases. Of COURSE some of it lines up.", { gap: 8 }],
+        ["e", ">>5\nthey released the stake song a MONTH before Cruc-affixion. explain that, anti", { gap: 2 }],
+        ["d", ">>6\ncoincidence + hindsight. post the other 40 songs that didn't predict anything", { gap: 3 }],
+        ["f", "If FES actually knows something she should go to the police instead of selling CDs", { gap: 11 }],
+        ["g", ">>8\nthis is the most reasonable post in the history of this board", { gap: 1 }],
+        ["h", "FES-tan's voice is still god tier though. Hate the fans, not the vocalist", { gap: 15, mail: "sage" }],
+      ]
+    },
+
     /* =============================================================== */
     { board: "incident", key: "1223737200", start: "2008/10/11 23:40",
       title: "[Shibuya] New Gen General Part 22 [Vampbuyer]",
@@ -58,7 +224,7 @@ window.BBS = {
         ["f", "Calling it now. That phrase is gonna be on T-shirts by next week.", { gap: 4 }],
         ["g", ">>7\nalready saw some kid at the crossing yelling it at his friends\nShibuya never changes", { gap: 2 }],
         ["h", "", { gap: 5, aa: true, body:
-"New Gen News Bear (ll´(ｪ)`ll)\n\nNo.1  Group Dive       ﾉﾉﾉ---(o|||||´□`)o\nNo.2  Manchild         ＼(||`□´||;;＼)\nNo.3  Cruc-affixion    †|†|(@□@)|†|†\nNo.4  Vampbuyer        ξ--(;´ξ`;)---ξ\nNo.? ...to be continued!!! (ﾟдﾟ)ｶﾞｸﾌﾞﾙ" }],
+"New Gen News Bear (;´(ｪ)`)\n\nNo.1  Group Dive       (ﾟдﾟ)(ﾟдﾟ)(ﾟдﾟ)ﾉ ↓↓↓\nNo.2  Manchild         (||ﾟДﾟ)⊃●\nNo.3  Cruc-affixion    ┼┼(ﾟ∀ﾟ;)┼┼ ｶﾝｶﾝｶﾝ\nNo.4  Vampbuyer        ( ﾟ∀ﾟ)σ[TYPE B] ﾁｭｰﾁｭｰ\nNo.?  ...nobody wants a No.5 (;´(ｪ)`)" }],
         ["i", ">>9\nthe bear is back lmao\nalso \"to be continued\" is not funny anymore", { gap: 2 }],
         ["j", "Serious question. Does anyone actually think this is ONE guy? The methods are all completely different.", { gap: 6 }],
         ["k", ">>11\nthe police seem to think they're unrelated. separate teams on each case", { gap: 3 }],
@@ -277,21 +443,21 @@ window.BBS = {
   /* "All Things New Gen" summary blog */
   newgen: {
     headlines: [
-      "The Earthquake Two Months Before It All Started",
-      "Bizarre Serial Incidents: 4 So Far",
-      "Hammering Heard Near the Wall, No One Seen",
-      "Blood Listed on an Auction Site?!",
-      "One Killer or Many? @channel Is Divided",
-      "\"Group Dive\" \"Manchild\" \"Cruc-affixion\" \"Vampbuyer\"",
-      "That Phrase Is Now Being Chanted at the Crossing",
+      "Seven Cases in Two Months: The Full List",
+      "DQN Puzzle: Photos on @channel Before the Police Report?",
+      "Finger Food Comes One Day After the Quake",
+      "Numbskull: \"A Psychiatrist With No Brain\" Becomes a Meme",
+      "M5.0 Quake: 118 Dead. Why So Many?",
+      "One Killer or Many? The Theories So Far",
+      "The Phrase on the Wall Is Now on T-Shirts",
     ],
     article: {
-      date: "10/12/200X (Sun)",
-      title: "The Earthquake Two Months Before It All Started",
+      date: "11/05/200X (Wed)",
+      title: "Seven Cases in Two Months: The Full List",
       name: "The Following Post Will Be Presented By Anonymous",
-      body: "In July, an earthquake of magnitude 3 hit with Shibuya as its epicenter.\nIt barely registered anywhere else. And yet, eight people died...\n\nSome on @channel now count those eight as the true \"case zero\" of New Gen.\nThe official word is still \"unfortunate accidents\". Make of that what you will (ll´(ｪ)`ll)",
+      body: "Since the Group Dive on 9/7, Shibuya has had seven cases in under two months.\nThe police still won't officially call it a serial case. Here is everything we know, case by case (;´(ｪ)`)",
     },
-    bookmarks: ["Templates Ume", "cococodayo", "everyday-buriburi", "konkitsune-concon", "byby.net-not", "NEWS-SWEN", "memo-momoume", "GOOD! COME! COME!", "HIKKI-Nikki", "Trick2watori", "NYOKINYOKI-MOON"],
+    bookmarks: ["shibuya-matome", "ochanoma-news", "nekomimi-sokuho", "kitaa-blog", "DQN-watch", "gerogero-diary", "otaku-sokuho", "kowai-hanashi", "neet-life-log", "mewtube-ranking"],
   },
 
   /* Anonymous replies that show up after you post */
