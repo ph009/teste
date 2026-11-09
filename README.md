@@ -1,27 +1,27 @@
-# @channel — BBS de CHAOS;HEAD (fan-made)
+# @channel — the CHAOS;HEAD BBS (fan-made)
 
-Recriação de fã do @channel (@ちゃんねる), o BBS que Takumi lê em CHAOS;HEAD.
-O visual segue as telas do BBS em CHAOS;HEAD NoAH:
+A fan recreation of @channel (@ちゃんねる), the BBS that Takumi reads in CHAOS;HEAD.
+The look follows the BBS screens in CHAOS;HEAD NoAH:
 
-- fundo de tijolos oliva com coluna central;
-- banner do board ("… Board Guide / Users under 20 years old will be banned.");
-- caixa amarela de regras em texto vermelho ("@channel Bulletin Board…", "Users under the age of 20 are not allowed to proceed.");
-- caixas brancas de thread com `■▲▼` roxos, `[1:538]` e título em vermelho;
-- posts no formato `525  Name: Anonymous Prophet [sage]: 200X/10/7(Tue) 10:24:27 ID:O983t+Tt` (número e `ID:` em azul, nome em verde, ano mascarado como `200X`).
+- olive brick background with a centered column;
+- a banner for each board ("… Board Guide / Users under 20 years old will be banned.");
+- a yellow rules box with red text ("Users under the age of 20 are not allowed to proceed.");
+- white thread boxes with purple `■▲▼` buttons, `[1:538]` and the thread title in red;
+- posts in the format `525  Name: Anonymous Prophet [sage]: 200X/10/7(Tue) 10:24:27 ID:O983t+Tt` (number and `ID:` in blue, name in green, year masked as `200X`).
 
-A linha do tempo cobre os 7 casos da New Gen: Group Dive 9/7, Manchild 9/19, Cruc-affixion 9/29, Vampbuyer 10/10, Numbskull 10/23, Finger Food 10/28 e DQN Puzzle 11/4, além dos terremotos de julho (M3.0) e 10/27 (M5.0).
-O site começa em 5/11, um dia depois de DQN Puzzle.
+The timeline covers all 7 New Gen cases: Group Dive 9/7, Manchild 9/19, Cruc-affixion 9/29, Vampbuyer 10/10, Numbskull 10/23, Finger Food 10/28 and DQN Puzzle 11/4, plus the Shibuya earthquakes in July (M3.0) and on 10/27 (M5.0).
+The site starts on 11/5, the day after DQN Puzzle.
 
-Site estático, sem dependências: abra `index.html` ou publique pelo GitHub Pages.
+Static site with no dependencies: open `index.html` or publish it with GitHub Pages.
 
-## Funções
-- Botão "Back to @channel Home" no topo de cada página e um botão "Home" flutuante
-- Portal com boards, lista dos 7 casos (com kaomoji), threads mais rápidas e contador
-- 6 boards (Figure/Eroge, Incidents, Occult, News VIP, Online Games, Earthquake), cada um com banner, regras, índice, prévias e formulário de nova thread
-- Leitura completa / Last 50 / 1-100, popups de `>>n` (aninhados), popup e destaque por ID, clique no número para citar
-- Postagem salva no navegador: `sage`/`age`, tripcode `Nome#senha`, `fusianasan`, limite de 1000 posts, tamanho em KB
-- Anônimos que respondem aos seus posts, busca de threads, guias dos boards
-- Blog de resumos "All Things New Gen" com a ficha de cada caso e dos terremotos
+## Features
+- "Back to @channel Home" button at the top of every page, plus a floating "Home" button
+- Home page with the board list, the 7 cases (with kaomoji), the fastest threads and a visitor counter
+- 6 boards (Figure/Eroge, Incidents, Occult, News VIP, Online Games, Earthquake), each with a banner, rules, thread index, thread previews and a new-thread form
+- Read all / Last 50 / 1-100 views, nested `>>n` popups, popups and highlighting by ID, click a post number to quote it
+- Posting saved in your browser: `sage`/`age`, `Name#password` tripcodes, `fusianasan`, 1000-post limit, thread size in KB
+- Anonymous users who reply to your posts, thread search, board guides
+- "All Things New Gen" summary blog with a file on each case and on the earthquakes
 - Easter egg: *Whose eyes are those eyes?*
 
-Todo o texto dos posts é original. Sem afiliação com MAGES./Nitroplus/Spike Chunsoft.
+All post text is original. Not affiliated with MAGES./Nitroplus/Spike Chunsoft.
